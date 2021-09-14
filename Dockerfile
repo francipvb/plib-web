@@ -16,6 +16,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 RUN python manage.py collectstatic
+RUN chmod +x dockerentrypoint.sh
 
 EXPOSE 8000
+ENTRYPOINT [ "/app/dockerentrypoint.sh" ]
 CMD [ "daphne", "config.asgi:application", "-b", "0.0.0.0", "-p", "8000" ]
