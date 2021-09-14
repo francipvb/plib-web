@@ -33,6 +33,7 @@ DJANGO_APPS = [
     "django.contrib.sites",
 ]
 EXTERNAL_APPS = [
+    "drf_spectacular",
     "rest_framework",
     "rest_framework.authtoken",
     "rest_auth",
@@ -164,3 +165,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Custom user model definition:
 AUTH_USER_MODEL = "users.user"
+
+REST_FRAMEWORK = {
+    # YOUR SETTINGS
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+SPECTACULAR_SETTINGS = {"COMPONENT_SPLIT_REQUEST": True}
