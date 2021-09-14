@@ -1,0 +1,8 @@
+# Ignored files:
+**/__pycache__
+*.sqlite3
+mypy.ini
+.flake8
+.mypy_cache/
+var/
+.env
