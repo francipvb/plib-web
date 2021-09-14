@@ -8,11 +8,12 @@ authors = ["Francisco Del Roio <francipvb@hotmail.com>"]
 python = "^3.8"
 Django = "^3.2.7"
 djangorestframework = "^3.12.4"
-psycopg2 = "^2.9.1"
 daphne = "^3.0.2"
 drf-spectacular = "^0.18.2"
 whitenoise = "^5.3.0"
 environs = {version = "^9.3.3", extras = ["django"]}
+django-storages = {version = "^1.11.1", extras = ["boto3"]}
+psycopg2-binary = "^2.9.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"
@@ -20,12 +21,29 @@ pytest-django = "^4.4.0"
 factory-boy = "^3.2.0"
 black = "^21.8b0"
 flake8-isort = "^4.0.0"
-flake8-mypy = "^17.8.0"
 flake8-black = "^0.2.3"
 pytest-sugar = "^0.9.4"
 pytest-cov = "^2.12.1"
 ipdb = "^0.13.9"
+flake8-django = "^1.1.2"
+mypy = "^0.910"
+django-stubs = "^1.9.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.black]
+profile = "django"
+line-length = 100
+target-version = ["py39", "py38"]
+
+[tool.mypy]
+plugins = ["mypy_django_plugin.main"]
+
+[tool.django-stubs]
+django_settings_module = "config.settings"
