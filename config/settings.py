@@ -138,7 +138,9 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-WHITENOISE_ROOT = FRONTEND_DIST_DIR
+if not DEBUG:
+    # Serve the frontend application only in production, not in local development.
+    WHITENOISE_ROOT = FRONTEND_DIST_DIR
 STATIC_ROOT = env.str(
     "STATIC_FILES_DIR",
     str(BASE_DIR / "var" / "staticfiles"),
