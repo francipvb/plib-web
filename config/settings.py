@@ -68,6 +68,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "config.urls"
 
+FRONTEND_DIST_DIR = BASE_DIR / "frontend" / "dist" / "frontend"
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -81,6 +83,9 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
             ],
         },
+        "DIRS": [
+            FRONTEND_DIST_DIR,
+        ],
     },
 ]
 
@@ -138,6 +143,9 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_DIRS = [
+    FRONTEND_DIST_DIR,
+]
 STATIC_ROOT = env.str(
     "STATIC_FILES_DIR",
     str(BASE_DIR / "var" / "staticfiles"),
