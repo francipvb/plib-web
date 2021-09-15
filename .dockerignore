@@ -6,3 +6,7 @@ mypy.ini
 .mypy_cache/
 var/
 .env
+
+# Node.JS generated files:
+**/node_modules/
+**/dist/
