@@ -32,14 +32,10 @@ DJANGO_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.sites",
 ]
+
 EXTERNAL_APPS = [
     "drf_spectacular",
     "rest_framework",
-    "rest_framework.authtoken",
-    "rest_auth",
-    "rest_auth.registration",
-    "allauth",
-    "allauth.account",
 ]
 
 PROJECT_APPS = [
@@ -73,7 +69,6 @@ FRONTEND_DIST_DIR = BASE_DIR / "frontend" / "dist" / "frontend"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -143,9 +138,7 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-STATICFILES_DIRS = [
-    FRONTEND_DIST_DIR,
-]
+WHITENOISE_ROOT = FRONTEND_DIST_DIR
 STATIC_ROOT = env.str(
     "STATIC_FILES_DIR",
     str(BASE_DIR / "var" / "staticfiles"),
