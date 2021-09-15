@@ -21,7 +21,6 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/frontend",
-            "deployUrl": "/static/",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -78,6 +77,9 @@
             "development": {
               "browserTarget": "frontend:build:development"
             }
+          },
+          "options": {
+            "proxyConfig": "./proxy.conf.js",
           },
           "defaultConfiguration": "development"
         },
